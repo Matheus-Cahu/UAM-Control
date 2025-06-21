@@ -8,7 +8,7 @@ import org.jxmapviewer.viewer.GeoPosition;
 import org.jxmapviewer.input.CenterMapListener;
 import org.jxmapviewer.input.PanMouseInputListener;
 import org.jxmapviewer.input.ZoomMouseWheelListenerCursor;
-
+import org.jxmapviewer.input.ZoomMouseWheelListenerCenter;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
@@ -23,7 +23,11 @@ public class OSMViewer {
 
     JFrame frame = new JFrame("OSMViewer");
     JXMapViewer mapViewer = new JXMapViewer();
-
+MouseInputListener mia = new PanMouseInputListener(mapViewer);
+mapViewer.addMouseListener(mia);
+mapViewer.addMouseMotionListener(mia);
+mapViewer.addMouseWheelListener(new ZoomMouseWheelListenerCenter(mapViewer));
+mapViewer.addMouseListener(new CenterMapListener(mapViewer));
     TileFactoryInfo info = new OSMTileFactoryInfo();
     DefaultTileFactory tileFactory = new DefaultTileFactory(info);
     mapViewer.setTileFactory(tileFactory);
@@ -33,7 +37,7 @@ public class OSMViewer {
 
 
     frame.add(mapViewer);
-    frame.setSize(800,600);
+    frame.setSize(1920,1080);
     frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
     frame.setVisible(true);
   }
