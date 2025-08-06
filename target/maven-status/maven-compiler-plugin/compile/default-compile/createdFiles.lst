@@ -1,2 +1,5 @@
 com/exemplo/OSMViewer.class
+com/exemplo/MainViewer.class
 com/exemplo/OSMTileFactoryInfo.class
+com/exemplo/Elements/Evtol.class
+com/exemplo/EvtolWaypoint.class

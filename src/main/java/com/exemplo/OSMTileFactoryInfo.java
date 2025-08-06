@@ -10,7 +10,6 @@ public class OSMTileFactoryInfo extends TileFactoryInfo
   @Override
   public String getTileUrl(int x, int y, int zoom) {
     int z = 20 - zoom;
-    System.out.println(z + "/" + x + "/" + y);
     return this.baseURL + "/" + z + "/" + x + "/" + y + ".png";
   }
 }
